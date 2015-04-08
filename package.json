@@ -1,7 +1,7 @@
 {
-  "name": "lemonade",
+  "name": "my-project",
   "version": "0.0.1",
-  "description": "lemonade",
+  "description": "a cool project",
   "main": "gulpfile.js",
   "dependencies": {
     "gulp": "~3.8.8",
@@ -19,16 +19,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/dope/lemonade"
+    "url": "https://github.com/gburning/gb-gulp-starter"
   },
   "keywords": [
     "sass",
     "framework"
   ],
-  "author": "Joe Richardson",
+  "author": "Gabriel Burning",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dope/lemonade/issues"
-  },
-  "homepage": "http://lemonade.im"
+    "url": "https://github.com/gburning/gb-gulp-starter/issues"
+  }
 }
