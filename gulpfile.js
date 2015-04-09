@@ -1,27 +1,21 @@
 // requirements
 var gulp         = require('gulp');
-var sass         = require('gulp-sass');
+var sass         = require('gulp-ruby-sass');
 var browserSync  = require('browser-sync');
 var prefix       = require('gulp-autoprefixer');
 var rename       = require('gulp-rename');
-var minifyCSS    = require('gulp-minify-css');
 
 // create sass tasks
-gulp.task('sass', function () {
-    gulp.src('scss/**/*.scss')
-        .pipe(sass({outputStyle: 'expanded', includePaths: ['scss']}))
-        .pipe(prefix("last 2 versions", "> 1%", "ie 8", "Android 2", "Firefox ESR"))
-        .pipe(gulp.dest('css'))
-	.pipe(minifyCSS())
-	.pipe(rename({
-	            suffix: '.min'
-	}))
-	.pipe(gulp.dest('css'));
+gulp.task('sass', function() {
+  return sass('scss/style.scss', {style: 'compressed'}, {sourcemap: true})
+    .pipe(rename({suffix: '.min'}))
+    .pipe(prefix("last 2 versions", "> 1%", "ie 8", "Android 2", "Firefox ESR"))
+    .pipe(gulp.dest('css'))
 });
 
 // create browser sync task
 gulp.task('browser-sync', function() {
-    browserSync.init(["css/*.css"], {
+    browserSync.init(["css/*.css", "*.html", "js/*.js"], {
         server: {
             baseDir: "./"
         }
