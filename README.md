@@ -12,9 +12,13 @@ Based on the gulpfile in [Lemonade](http://lemonade.im/). I wanted to create a s
 ## Modifications
 
 ###Use default server instead of proxy
+
 If you want to use the "built-in" basic server instead of your own (like MAMP), replace
+
     proxy: "localhost/" + site_name
+
 with
+
     server: {
     	baseDir: "./"
     }
