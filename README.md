@@ -5,8 +5,8 @@ Based on the gulpfile in [Lemonade](http://lemonade.im/). I wanted to create a s
 ## Instructions (for dummies like me)
 
 1. Download files into your project folder. See [this](http://stackoverflow.com/questions/11497457/git-clone-without-git-directory?lq=1).
-2. Run `npm install gulp`.
-3. Modify gulp as you wish and run it
+2. Run `npm install` to install gulp and all the other dependencies listed in `package.json`.
+3. Modify gulp as you wish and run it.
 4. Happy camping!
 
 ## Contact
