@@ -1,9 +1,13 @@
+// configuration
+var site_name = 'gb-gulp-starter'; //This should be the name of the folder your site is in
+
 // requirements
 var gulp         = require('gulp');
 var sass         = require('gulp-ruby-sass');
 var browserSync  = require('browser-sync');
 var prefix       = require('gulp-autoprefixer');
 var rename       = require('gulp-rename');
+var uglify       = require('gulp-uglify');
 
 // create sass tasks
 gulp.task('sass', function() {
@@ -13,16 +17,26 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('css'))
 });
 
+gulp.task('compress', function() {
+  return gulp.src('js/main.js')
+    .pipe(uglify())
+    .pipe(rename({suffix: '-min'}))
+    .pipe(gulp.dest('js/'));
+});
+
 // create browser sync task
 gulp.task('browser-sync', function() {
-    browserSync.init(["css/*.css", "*.html", "js/*.js"], {
+    browserSync.init(["css/*.css", "*.html", "*.php", "js/*.js"], {
         server: {
             baseDir: "./"
         }
+        // proxy: "localhost/" + site_name
     });
 });
 
 // default task (just run gulp)
 gulp.task('default', ['sass', 'browser-sync'], function () {
     gulp.watch("scss/**/*.scss", ['sass']);
+    gulp.watch("js/main.js", ['compress']);
+    mamp(options, 'start', cb);
 });
