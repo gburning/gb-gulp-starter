@@ -1,3 +1,6 @@
+// configuration
+var site_name = 'gb-gulp-starter'; //This should be the name of the folder your site is in
+
 // requirements
 var gulp         = require('gulp');
 var sass         = require('gulp-ruby-sass');
@@ -27,6 +30,7 @@ gulp.task('browser-sync', function() {
         server: {
             baseDir: "./"
         }
+        // proxy: "localhost/" + site_name
     });
 });
 
@@ -34,4 +38,5 @@ gulp.task('browser-sync', function() {
 gulp.task('default', ['sass', 'browser-sync'], function () {
     gulp.watch("scss/**/*.scss", ['sass']);
     gulp.watch("js/main.js", ['compress']);
+    mamp(options, 'start', cb);
 });
