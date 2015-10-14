@@ -27,10 +27,7 @@ gulp.task('compress', function() {
 // create browser sync task
 gulp.task('browser-sync', function() {
     browserSync.init(["css/*.css", "*.html", "*.php", "js/*.js"], {
-        server: {
-            baseDir: "./"
-        }
-        // proxy: "localhost/" + site_name
+        proxy: "localhost/" + site_name
     });
 });
 
@@ -38,5 +35,4 @@ gulp.task('browser-sync', function() {
 gulp.task('default', ['sass', 'browser-sync'], function () {
     gulp.watch("scss/**/*.scss", ['sass']);
     gulp.watch("js/main.js", ['compress']);
-    mamp(options, 'start', cb);
 });
