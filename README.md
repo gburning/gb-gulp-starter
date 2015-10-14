@@ -6,14 +6,18 @@ Based on the gulpfile in [Lemonade](http://lemonade.im/). I wanted to create a s
 
 1. Download files into your project folder. See [this](http://stackoverflow.com/questions/11497457/git-clone-without-git-directory?lq=1).
 2. Run `npm install` to install gulp and all the other dependencies listed in `package.json`.
-3. Modify gulp as you wish and run it.
-	-	If you want to use the "built-in" basic server instead of your own (like MAMP), replace
-			proxy: "localhost/" + site_name
-		with
-			server: {
-            	baseDir: "./"
-        	}
+3. Modify gulp as you wish and run it. See below.
 4. Happy camping!
+
+## Modifications
+
+###Use default server instead of proxy
+If you want to use the "built-in" basic server instead of your own (like MAMP), replace
+    proxy: "localhost/" + site_name
+with
+    server: {
+    	baseDir: "./"
+    }
 
 ## Contact
 On the off chance that anyone else uses this and wants to get in touch with me, you can do so here:
