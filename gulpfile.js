@@ -4,6 +4,7 @@ var sass         = require('gulp-ruby-sass');
 var browserSync  = require('browser-sync');
 var prefix       = require('gulp-autoprefixer');
 var rename       = require('gulp-rename');
+var uglify       = require('gulp-uglify');
 
 // create sass tasks
 gulp.task('sass', function() {
@@ -13,9 +14,16 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('css'))
 });
 
+gulp.task('compress', function() {
+  return gulp.src('js/main.js')
+    .pipe(uglify())
+    .pipe(rename({suffix: '-min'}))
+    .pipe(gulp.dest('js/'));
+});
+
 // create browser sync task
 gulp.task('browser-sync', function() {
-    browserSync.init(["css/*.css", "*.html", "js/*.js"], {
+    browserSync.init(["css/*.css", "*.html", "*.php", "js/*.js"], {
         server: {
             baseDir: "./"
         }
@@ -25,4 +33,5 @@ gulp.task('browser-sync', function() {
 // default task (just run gulp)
 gulp.task('default', ['sass', 'browser-sync'], function () {
     gulp.watch("scss/**/*.scss", ['sass']);
+    gulp.watch("js/main.js", ['compress']);
 });
