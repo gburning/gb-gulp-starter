@@ -11,7 +11,7 @@ Based on the gulpfile in [Lemonade](http://lemonade.im/). I wanted to create a s
 
 ## Modifications
 
-###Use default server instead of proxy
+### Use default server instead of proxy
 
 If you want to use the "built-in" basic server instead of your own (like MAMP), replace
 
@@ -26,5 +26,4 @@ with
 ## Contact
 On the off chance that anyone else uses this and wants to get in touch with me, you can do so here:
 
--   [hello@gburning.com](mailto:hello@gburning.com)
 -   [@gburning_](http://twitter.com/gburning_)
